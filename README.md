@@ -98,27 +98,27 @@ We welcome feedback and contributions to improve **JingleBites**! 🎄
 
    
 
-8. **Saved Posts / Meal Planner**  
+7. **Saved Posts / Meal Planner**  
    ![Saved Posts](assets/images/jb_savepost.png)
    ![Saved Posts](assets/images/jb_savepost1.png) 
    _Saved posts are organized in the meal planner, where users can plan their Christmas meals by date._
 
    
 
-10. **Search Results**  
+8. **Search Results**  
    ![Search Results](assets/images/jb_searchbar.png)  
    _Users can search for recipes by name or ingredients and find relevant results._
 
 
 
-12. **About Us Page**  
+9. **About Us Page**  
     ![About Us](assets/images/jb_aboutus.png)
     ![About Us](assets/images/jb_aboutus1.png)
     _The "About Us" section where users learn more about JingleBites and its mission._
 
     
 
-14. **Payment**  
+10. **Payment**  
     ![Payment](assets/images/jb_subpayment.png)
     ![Payment](assets/images/jb_subpayment1.png)
     ![Payment](assets/images/jb_subpaysuccess.png)   
@@ -126,9 +126,13 @@ We welcome feedback and contributions to improve **JingleBites**! 🎄
 
     
 
-16. **Email**  
+11. **Email**  
     ![Payment](assets/images/jb_emailconfirmation.png)  
     _The "Email Confirmation" after the payment is successful._
+
+12. **PDF**  
+    [Download PDF](assets/pdf/Christmas Pudding.pdf)  
+    _The downloaded pdf from the view post section._
 
     
 
