@@ -65,8 +65,8 @@ We welcome feedback and contributions to improve **JingleBites**! 🎄
    _This is the main landing page where users can browse Christmas-themed recipes and use the search bar._
 
 3. **Signup and Login Pages**  
-   ![Sign Up](assets/images/jb_signup.png)
-   ![Login In](assets/images/jb_login.png)
+   ![Sign Up](assets/images/jbsignup.png)
+   ![Login In](assets/images/jblogin.png)
    _Users can sign up or log in to their accounts to access the platform._
 
 5. **Create Author Name**  
