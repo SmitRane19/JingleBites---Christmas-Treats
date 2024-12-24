@@ -32,6 +32,7 @@ To set up the project locally, follow these steps:
    git clone https://github.com/username/jinglebites.git
    cd jinglebites
 2. Windows:
+   ```bash
    python -m venv venv
   venv\Scripts\activate
 
