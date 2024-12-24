@@ -131,8 +131,9 @@ We welcome feedback and contributions to improve **JingleBites**! 🎄
     _The "Email Confirmation" after the payment is successful._
 
 12. **PDF**  
-    [Download PDF](assets/pdf/Christmas Pudding.pdf)  
-    _The downloaded pdf from the view post section._
+   [Download PDF](assets/pdf/Christmas%20Pudding.pdf)  
+   _The downloaded PDF from the view post section._
+
 
     
 
