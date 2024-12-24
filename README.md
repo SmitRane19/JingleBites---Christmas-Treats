@@ -34,7 +34,7 @@ To set up the project locally, follow these steps:
 2. Windows:
    ```bash
    python -m venv venv
-  venv\Scripts\activate
+   venv\Scripts\activate
 
 ## Usage Instructions 🚀  
 
