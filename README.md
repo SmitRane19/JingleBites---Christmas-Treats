@@ -87,8 +87,8 @@ We welcome feedback and contributions to improve **JingleBites**! 🎄
    _Users can create their own Christmas recipes using a rich text editor._
 
 10. **Saved Posts / Meal Planner**  
-   ![Saved Posts](assets/images/jb_savedpost.png)
-   ![Saved Posts](assets/images/jb_savedpost1.png) 
+   ![Saved Posts](assets/images/jb_savepost.png)
+   ![Saved Posts](assets/images/jb_savepost1.png) 
    _Saved posts are organized in the meal planner, where users can plan their Christmas meals by date._
 
 12. **Search Results**  
