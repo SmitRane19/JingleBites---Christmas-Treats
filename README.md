@@ -31,3 +31,29 @@ To set up the project locally, follow these steps:
    ```bash
    git clone https://github.com/username/jinglebites.git
    cd jinglebites
+2. Windows:
+   python -m venv venv
+  venv\Scripts\activate
+
+## Usage Instructions 🚀  
+
+1. **Sign up and log in** to the platform to get started.  
+2. **Create your unique author name** to begin posting recipes.  
+3. **Select a subscription plan** to unlock additional posts and downloads per day:  
+   - Free Plan: 1 post and 1 download per day.  
+   - Basic Plan: 3 posts and 3 downloads per day.  
+   - Standard Plan: 10 posts and 10 downloads per day.  
+   - Premium Plan: Unlimited posts and downloads.  
+4. **Share your Christmas-themed recipes** and explore creations from other users.  
+5. **Rate, comment, and download recipes** in PDF format for easy sharing and access.  
+6. Use the **meal planner** to organize your Christmas meals. Recipes saved for a specific date will automatically be removed once the date has passed.  
+7. **Search for recipes** by name or ingredients using the search bar.  
+
+---
+
+## Contributors ✨  
+- **Smit Rane**  
+
+We welcome feedback and contributions to improve **JingleBites**! 🎄  
+
+
