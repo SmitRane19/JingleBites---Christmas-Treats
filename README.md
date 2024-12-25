@@ -35,6 +35,19 @@ To set up the project locally, follow these steps:
    ```bash
    python -m venv venv
    venv\Scripts\activate
+3. Windows:
+   ```bash
+   python manage.py makemigrations
+   python manage.py migrate
+
+4. settings.py
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+_Add your own email id and app password
 
 ## Usage Instructions 🚀  
 
