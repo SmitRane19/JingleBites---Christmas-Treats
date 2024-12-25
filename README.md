@@ -140,6 +140,11 @@ We welcome feedback and contributions to improve **JingleBites**! 🎄
    [Download PDF](assets/pdf/Christmas%20Pudding.pdf)  
    _The downloaded PDF from the view post section._
 
+## Visit the JingleBites Website 🌐
+
+You can view and interact with the live JingleBites website here:  
+[Visit JingleBites](https://jinglebites.pythonanywhere.com/)
+
 
     
 
