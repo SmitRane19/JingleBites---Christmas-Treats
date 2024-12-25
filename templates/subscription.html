@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+JingleBites | Subscription
+{% endblock title %}
+{% block content %}
+<style>
+    .card {
+        transition: transform 0.3s ease-in-out;
+    }
+    .card:hover {
+        transform: scale(1.05);
+    }
+    .card-header {
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-align: center;
+    }
+    .pricing-card {
+        border: 2px solid #ddd;
+        border-radius: 10px;
+    }
+    .pricing-card.featured {
+        border-color: #007bff;
+    }
+    .btn-subscribe {
+        display: block;
+        margin: auto;
+        width: 50%;
+    }
+    .current-plan {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        margin-bottom: 30px;
+    }
+    .current-plan h2, .current-plan p {
+        text-align: center;
+    }
+</style>
+
+<div class="container py-5">
+    <!-- Display the user's current subscription -->
+    <div class="current-plan">
+        <h2>Your Subscription</h2>
+        {% if current_plan %}
+            <p>You are currently on the <strong>{{ current_plan.name }}</strong> plan.</p>
+        {% else %}
+            <p>You are not subscribed to any plan yet.</p>
+        {% endif %}
+    </div>
+
+    <!-- Subscription Plans Section -->
+    <h1 class="text-center mb-4">Choose Your Plan</h1>
+    <div class="row justify-content-center">
+        {% for plan in plans %}
+        <div class="col-md-4 mb-4">
+            <div class="card pricing-card shadow {% if plan.name == 'Standard' %}featured{% endif %}">
+                <div class="card-header {% if plan.name == 'Standard' %}bg-primary text-white{% else %}bg-light{% endif %}">{{ plan.name }}</div>
+                <div class="card-body text-center">
+                    <h2 class="card-title">₹{{ plan.price }}/month</h2>
+                    <ul class="list-unstyled">
+                        {% for feature in plan.features %}
+                            <li>✔ {{ feature }}</li> <!-- Display each feature on a separate line -->
+                        {% endfor %}
+                        <li>✘ No Post Scheduling</li>
+                    </ul>
+                    {% if current_plan and current_plan == plan.name %}
+                        <button class="btn btn-success btn-subscribe" disabled>Current Plan</button>
+                    {% else %}
+                        <a href="{% url 'payment' plan.id %}" class="btn {% if plan.name == 'Standard' %}btn-primary{% else %}btn-outline-primary{% endif %} btn-subscribe">Subscribe</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    
+</div>
+{% endblock content %}
+    
+

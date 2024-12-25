@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+JingleBites | About Us
+{% endblock title %}
+
+{% block content %}
+<style>
+    body {
+        background-color: #f8f9fa;
+        color: #495057;
+    }
+    .hero-section {
+        background-image: url("{% static 'images/xmasbg.jpg' %}");
+        background-size: cover;
+        color: white;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .hero-section h1 {
+        font-size: 3rem;
+        font-weight: bold;
+    }
+    .card-deck .card {
+        border-radius: 15px;
+        overflow: hidden;
+    }
+    .footer {
+        background-color: #343a40;
+        color: white;
+        padding: 30px 0;
+        text-align: center;
+    }
+    .footer a {
+        color: #ffc107;
+        text-decoration: none;
+    }
+    .footer a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <h1>Welcome to JingleBites!</h1>
+        <p class="lead">A Christmas-themed recipe sharing hub to spread holiday cheer with delicious festive treats!</p>
+    </div>
+</section>
+
+<!-- Our Story -->
+<section class="py-5 text-center">
+    <div class="container">
+        <h2 class="display-4 mb-4">Our Story</h2>
+        <p>JingleBites was born from a love of the holiday season and the joy of sharing delicious homemade recipes with friends and family. We believe Christmas is the perfect time to connect with loved ones over great food. Here, you'll find the best festive recipes, from sweet treats to savory dishes, all inspired by the magic of Christmas!</p>
+    </div>
+</section>
+
+<!-- Our Mission -->
+<section class="bg-light py-5 text-center">
+    <div class="container">
+        <h2 class="display-4 mb-4">Our Mission</h2>
+        <p>At JingleBites, our mission is simple: to bring people together through the joy of cooking and sharing. We aim to create a community where home cooks, professional chefs, and food enthusiasts alike can share their favorite recipes, discover new ones, and spread the love of Christmas with every dish.</p>
+    </div>
+</section>
+
+<!-- Our Values -->
+<section class="py-5 text-center">
+    <div class="container">
+        <h2 class="display-4 mb-4">Our Values</h2>
+        <p><strong>1. Community:</strong> We believe in the power of sharing, connecting, and supporting each other through the love of food.</p>
+        <p><strong>2. Creativity:</strong> Christmas is a time to get creative in the kitchen, and we encourage trying new recipes, flavors, and techniques.</p>
+        <p><strong>3. Celebration:</strong> Every recipe shared is a celebration of the joy and warmth the Christmas season brings.</p>
+    </div>
+</section>
+
+<!-- Why Choose Us -->
+<section class="bg-primary text-white py-5 text-center">
+    <div class="container">
+        <h2 class="display-4 mb-4">Why Choose Us?</h2>
+        <p>JingleBites is more than just a recipe website. It's a vibrant community of Christmas enthusiasts who are passionate about good food, sharing traditions, and celebrating the holiday spirit. Join us and discover recipes that will make your holiday season even more special!</p>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-5 text-center">
+    <div class="container">
+        <h3 class="mb-4">Ready to share your holiday recipes?</h3>
+        <a href="{% url 'sign_up' %}" class="btn btn-danger btn-lg">Join the JingleBites Community</a>
+    </div>
+</section>
+{% endblock content %}
+    

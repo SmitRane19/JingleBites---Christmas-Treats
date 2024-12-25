@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <!-- Card Container for Form -->
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-primary text-white text-center">
+                    <h2>Create a New Post</h2>
+                </div>
+                <div class="card-body">
+                    <!-- Form -->
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="title" class="form-label fw-bold">Title</label>
+                            {{ form.title|add_class:"form-control" }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="content" class="form-label fw-bold">Content</label>
+                            <textarea class="form-control" id="content" name="content" rows="8">{{ post.content }}</textarea>  <!-- Regular text field with ID -->
+                        </div>
+                        <div class="mb-3">
+                            <label for="image" class="form-label fw-bold">Upload Image</label>
+                            {{ form.image|add_class:"form-control" }}
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-success btn-lg shadow-sm">
+                                <i class="fas fa-upload"></i> Create Post
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- Show Uploaded Image Preview -->
+            {% if form.instance.image %}
+            <div class="card mt-4 shadow-sm">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Uploaded Image Preview</h5>
+                    <img src="{{ form.instance.image.url }}" alt="Uploaded Image" class="img-fluid rounded shadow">
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<!-- Use CDN to load CKEditor -->
+<script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        ClassicEditor
+            .create(document.querySelector('#content'))  <!-- Initialize CKEditor on the textarea -->
+            .catch(error => {
+                console.error('CKEditor initialization failed: ', error);
+            });
+    });
+</script>
+
+{% endblock content %}

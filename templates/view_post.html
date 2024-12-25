@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+JingleBites | Post | {{ post.title|title }}
+{% endblock title %}
+{% block content %}
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <!-- Card for Post -->
+            <div class="card shadow-lg border-0">
+                <div class="card-body">
+                    <!-- Post Title -->
+                    <h1 class="card-title text-center mb-4">{{ post.title }}</h1>
+
+                    <!-- Post Metadata -->
+                    <p class="text-muted text-center">
+                        <small>
+                            Published on {{ post.created_at|date:"F d, Y" }} |
+                            Last updated: {{ post.updated_at|date:"F d, Y H:i" }}
+                        </small>
+                    </p>
+                    <hr>
+
+                    <!-- Display Post Image -->
+                    {% if post.image %}
+                    <div class="post-image mb-4 text-center">
+                        <img src="{{ post.image.url }}" class="img-fluid rounded shadow" alt="Post Image">
+                    </div>
+                    {% else %}
+                    <div class="post-image mb-4 text-center">
+                        <img src="https://via.placeholder.com/500x300?text=No+Image+Available"
+                             class="img-fluid rounded shadow" alt="No Image Available">
+                    </div>
+                    {% endif %}
+
+                    <!-- Post Content -->
+                    <p class="card-text">{{ post.content|safe}}</p>
+
+                    <!-- Action Buttons -->
+                    <div class="mt-4 text-center">
+                        {% if user.is_authenticated %}
+                        <!-- Save Post Button -->
+                        <button class="btn btn-success me-2" data-bs-toggle="modal" data-bs-target="#savePostModal">
+                            <i class="fas fa-save"></i> Save Post
+                        </button>
+
+                        <!-- Download Button -->
+                        <form method="post" action="{% url 'download_post' post.id %}" style="display: inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-download"></i> Download PDF
+                            </button>
+                        </form>
+                        {% endif %}
+
+                        <!-- Back to Dashboard -->
+                        <a href="{% url 'index' %}" class="btn btn-secondary">
+                            <i class="fas fa-home"></i> Dashboard
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Save Post Modal -->
+<div class="modal fade" id="savePostModal" tabindex="-1" aria-labelledby="savePostModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="savePostModalLabel">Save Post</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form method="post" action="{% url 'save_post' post.id %}">
+                {% csrf_token %}
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="saveDate" class="form-label">Select Date</label>
+                        <input type="date" class="form-control" id="saveDate" name="save_date" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">Save</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
