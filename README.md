@@ -53,7 +53,8 @@ To set up the project locally, follow these steps:
 4. **Share your Christmas-themed recipes** and explore creations from other users.  
 5. **Rate, comment, and download recipes** in PDF format for easy sharing and access.  
 6. Use the **meal planner** to organize your Christmas meals. Recipes saved for a specific date will automatically be removed once the date has passed.  
-7. **Search for recipes** by name or ingredients using the search bar.  
+7. **Search for recipes** by name or ingredients using the search bar.
+8. **settings.py** add your email-id and app-password for django email confirmation.
 
 ---
 
