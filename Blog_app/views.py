@@ -226,15 +226,12 @@ def save_post(request, post_id):
 def download_post(request, post_id):
     post = get_object_or_404(Post, id=post_id)
 
-    # Try to get the user's subscription plan, or assign a default value if no subscription exists
     try:
         subscription = request.user.subscription  
         plan = subscription.plan
     except Subscription.DoesNotExist:
-        # Assign a default plan for users without a subscription (i.e., free users)
         plan = 'Free'
 
-    # Define download limits based on the subscription plan
     download_limits = {
         'Free': 1,  
         'Basic': 3,
@@ -243,34 +240,36 @@ def download_post(request, post_id):
     }
 
     daily_limit = download_limits.get(plan, 0)
-
-    # Get today's date to check the downloads
     today = date.today()
 
-    # Check how many times the user has already downloaded the post today
+    # Check the user's daily download count
     download_count_today = Download.objects.filter(
         user=request.user,
         post=post,
         download_date=today
     ).count()
 
-    # If the user exceeds their download limit, render the error page with the message
     if download_count_today >= daily_limit:
         message = "You have reached your download limit for today."
         return render(request, 'error_pdf.html', {'message': message})
 
-    # If the download limit is not exceeded, create a new download record
+    # Check for duplicate downloads
+    existing_download = Download.objects.filter(
+        user=request.user,
+        post=post,
+        download_date=today
+    ).exists()
+
+    if existing_download:
+        message = "You have already downloaded this post today."
+        return render(request, 'error_pdf.html', {'message': message})
+
+    # Create a new download record
     Download.objects.create(user=request.user, post=post, download_date=today)
 
-    # Build the absolute URL for the image
     image_url = request.build_absolute_uri(post.image.url) if post.image else None
-
-    # Create the PDF
     template_path = 'view_post_pdf.html'
-    context = {
-        'post': post,
-        'image_url': image_url
-    }
+    context = {'post': post, 'image_url': image_url}
     response = HttpResponse(content_type='application/pdf')
     response['Content-Disposition'] = f'attachment; filename="{post.title}.pdf"'
     template = get_template(template_path)
