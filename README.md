@@ -39,21 +39,11 @@ To set up the project locally, follow these steps:
    ```bash
    python manage.py makemigrations
    python manage.py migrate
+---
 
-# Django Email Configuration
+## Email Configuration  
 
-This guide explains how to configure email functionality in a Django project using Gmail's SMTP server.
-
-## Prerequisites
-
-- A Gmail account with **App Passwords** enabled.
-- **Django** installed in your project.
-
-## Installation Steps
-
-### 1. Configure `settings.py`
-
-Add the following settings to your `settings.py` file:
+Add the following settings to your Django `settings.py`:
 
 ```python
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -62,6 +52,7 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = '<your-email-id>'
 EMAIL_HOST_PASSWORD = '<your-app-password>'
+
 
 
 ## Usage Instructions 🚀  
